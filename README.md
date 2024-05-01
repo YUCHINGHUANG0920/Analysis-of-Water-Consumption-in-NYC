@@ -30,7 +30,9 @@ Similar to data storage, we need to create a JSON formatted configuration file (
 
 
 #### 5. Serving Data:
-Once the data warehouse is established, we can use Tableau as a visualization tool. Initially, we established a connection between PostgreSQL and Tableau to generate different charts. The final charts are linked here: [insert link].
+Once the data warehouse is established, we can use Tableau as a visualization tool. Initially, we established a connection between PostgreSQL and Tableau to generate different charts. 
+
+The final charts are linked here: https://public.tableau.com/views/AnalysisofWaterConsumption/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link
 
 Insights from the charts:
 1. Although Manhattan has the highest total water consumption, this may be due to a larger number of data rather than the actual highest water usage. Therefore, analyzing based on average daily consumption is more appropriate.
