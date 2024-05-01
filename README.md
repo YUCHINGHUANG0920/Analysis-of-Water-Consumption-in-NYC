@@ -5,10 +5,12 @@ This is a personal assignment for Baruch College's CIS 9440 Data Warehousing and
 The data source for this project is the NYC Open Data - Water Consumption And Cost dataset (2013 - Feb 2023), which includes monthly consumption and cost data by borough and development. The assumed business requirements are: to analyze the average water consumption for each of the five boroughs of New York City and the water consumption at different times to identify which borough has the highest average water consumption and at what times the water consumption is highest. This analysis is intended to provide insights for future adjustments and management for water pricing.
 
 
+###
 ### Workflow of this project:
 
 #### 1. Data Source
 URL: https://data.cityofnewyork.us/Housing-Development/Water-Consumption-And-Cost-2013-Feb-2023-/66be-66yr/about_data
+
 Data Dictionary: This data dictionary is available in **Data_Dictionary_Water_Consumption___Cost.xlsx** for reference.
 
 
@@ -18,7 +20,7 @@ Create an Azure container to store the downloaded datasets from the data source.
 
 #### 3. Data Model
 Utilize DbSchema to draw the data modeling diagram of this project in a star schema format. The dbs file can be found in **database/waterconsumption.dbs**.
-![Star Schema](https://github.com/YUCHINGHUANG0920/Analysis-of-Water-Consumption-in-NYC/database/StarSchema.png)
+![Star Schema](https://github.com/YUCHINGHUANG0920/Analysis-of-Water-Consumption-in-NYC/blob/master/database/StarSchema.png)
 
 
 #### 4. Transformation
