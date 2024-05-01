@@ -8,6 +8,9 @@ The data source for this project is the **NYC Open Data - Water Consumption And 
 ## 
 ## Workflow of this project:
 
+![Star Schema](https://github.com/YUCHINGHUANG0920/Analysis-of-Water-Consumption-in-NYC/blob/master/InformationArchitecture.png)
+
+
 ### 1. Data Source
 URL: https://data.cityofnewyork.us/Housing-Development/Water-Consumption-And-Cost-2013-Feb-2023-/66be-66yr/about_data
 
