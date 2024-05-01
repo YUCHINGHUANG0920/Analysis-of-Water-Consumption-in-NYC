@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="waterconsumption_lgl" id="LogicalDesign-c17" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="waterconsumption_lgl" >
+		<table name="Dim_Date" prior="Entity" >
+			<column name="Date_ID" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="Date_Iso_Format" prior="Date_Iso_fromat" type="DATE" jt="91" />
+			<column name="Year_Number" prior="Year" type="INT" jt="4" />
+			<column name="Quarter_Number" prior="Quarter" type="INT" jt="4" />
+			<column name="Month_Number" prior="Month" type="INT" jt="4" />
+			<column name="Day_Number" prior="Day" type="INT" jt="4" />
+			<column name="Month_Name" type="VARCHAR" length="100" jt="12" />
+			<column name="Day_Name" type="VARCHAR" length="255" jt="12" />
+			<column name="Week_of_the_Year" type="INT" jt="4" />
+			<column name="Week_of_the_Month" type="INT" jt="4" />
+			<index name="pk_Dim_Date" unique="PRIMARY_KEY" >
+				<column name="Date_ID" />
+			</index>
+		</table>
+		<table name="Dim_Development" prior="Entity" >
+			<column name="Development_ID" prior="RC_Code" type="INT" jt="4" mandatory="y" />
+			<column name="Development_Name" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_Dim_Development" unique="PRIMARY_KEY" >
+				<column name="Development_ID" />
+			</index>
+		</table>
+		<table name="Dim_Funding" prior="Entity" >
+			<column name="Funding_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Funding_Source" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_Dim_Funding" unique="PRIMARY_KEY" >
+				<column name="Funding_ID" />
+			</index>
+		</table>
+		<table name="Dim_Location" prior="Entity" >
+			<column name="Location_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Borough" type="VARCHAR" length="255" jt="12" />
+			<column name="Street" type="VARCHAR" length="255" jt="12" />
+			<column name="Location" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_Dim_Location" unique="PRIMARY_KEY" >
+				<column name="Location_ID" />
+			</index>
+		</table>
+		<table name="Dim_Rate" prior="Entity" >
+			<column name="RateClass_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Rate_Class" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_Dim_Rate" unique="PRIMARY_KEY" >
+				<column name="RateClass_ID" />
+			</index>
+		</table>
+		<table name="Dim_Vendor" prior="Entity" >
+			<column name="Vendor_ID" type="INT" jt="4" mandatory="y" />
+			<column name="Vendor_Name" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_Dim_Vendor" unique="PRIMARY_KEY" >
+				<column name="Vendor_ID" />
+			</index>
+		</table>
+		<table name="Fact_WaterConsumption" prior="Fact_Water" >
+			<column name="Fact_ID" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="Current_Charges" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Consumption_HCF" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Water_Sewer_Charges" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Other_Charges" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="Number_of_Days" type="INT" jt="4" />
+			<column name="Location_ID" type="INT" jt="4" />
+			<column name="Development_ID" prior="RC_Code" type="INT" jt="4" />
+			<column name="Funding_ID" type="INT" jt="4" />
+			<column name="Vendor_ID" type="INT" jt="4" />
+			<column name="RateClass_ID" type="INT" jt="4" />
+			<column name="Service_StartDate_ID" type="BIGINT" jt="-5" />
+			<column name="Service_EndDate_ID" type="BIGINT" jt="-5" />
+			<index name="pk_Fact_WaterConsumption" unique="PRIMARY_KEY" >
+				<column name="Fact_ID" />
+			</index>
+			<fk name="fk_Fact_WaterConsumption_Dim_Vendor" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Vendor" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Vendor_ID" pk="Vendor_ID" />
+			</fk>
+			<fk name="fk_Fact_WaterConsumption_Dim_Rate" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Rate" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="RateClass_ID" pk="RateClass_ID" />
+			</fk>
+			<fk name="fk_Fact_WaterConsumption_Dim_Location" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Location" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Location_ID" pk="Location_ID" />
+			</fk>
+			<fk name="fk_Fact_WaterConsumption_Dim_Development" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Development" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Development_ID" pk="Development_ID" />
+			</fk>
+			<fk name="fk_Fact_WaterConsumption_Dim_Funding" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Funding" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Funding_ID" pk="Funding_ID" />
+			</fk>
+			<fk name="fk_Fact_WaterConsumption_Dim_Date" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Date" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Service_StartDate_ID" pk="Date_ID" />
+			</fk>
+			<fk name="fk_Fact_WaterConsumption_Dim_Date_0" virtual="y" to_schema="waterconsumption_lgl.INSTANCE" to_table="Dim_Date" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="Service_EndDate_ID" pk="Date_ID" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-2a1" show_relation="columns" >
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Dim_Date" color="C1D8EE" x="765" y="357" />
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Dim_Development" color="C1D8EE" x="544" y="595" />
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Dim_Funding" color="C1D8EE" x="204" y="595" />
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Dim_Location" color="C1D8EE" x="680" y="187" />
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Dim_Rate" color="C1D8EE" x="85" y="391" />
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Dim_Vendor" color="C1D8EE" x="102" y="221" />
+		<entity schema="waterconsumption_lgl.INSTANCE" name="Fact_WaterConsumption" color="C1D8EE" x="340" y="204" />
+		<callout x="51" y="51" pointer="Round" >
+			<comment><![CDATA[This is a layout - a diagram with tools.
+- Create new entities by right-clicking the layout. 
+- Double-click entity headers to edit.
+- For a better understanding of the schema, create multiple layouts.
+- Deploy the model into the database by converting it first to the physical design.]]></comment>
+		</callout>
+	</layout>
+</project>
