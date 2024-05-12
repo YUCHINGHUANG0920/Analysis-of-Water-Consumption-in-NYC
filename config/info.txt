@@ -1,0 +1,7 @@
+config.json:
+    connection string: DefaultEndpointsProtocol=https;AccountName=stgcis9440assignment;AccountKey=CZCJrWumA0aPjCCSusOnDVvGYuDR52GpOB05pM9u7JMTYMb+6tF+c0yp3JsxCLk3BuOEALTvYwPA+AStF/AdAA==;EndpointSuffix=core.windows.net
+
+config_sql.json:
+    username: yuching
+    pwd: NYcis019283baruch
+    host: cis9440dwassignment.postgres.database.azure.com

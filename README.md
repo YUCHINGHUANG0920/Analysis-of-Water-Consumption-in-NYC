@@ -44,3 +44,4 @@ Insights from the charts:
 3. The chart helps identify which developments have the highest average daily water consumption.
 4. For Queens, water consumption is lower on Fridays and Saturdays compared to other days, and July records the highest water consumption annually.
 5. For Manhattan, water consumption is higher on Sundays compared to other days, and June records the highest water consumption annually.
+6. After Identifying the locations and time periods with higher water consumption, we can subsequently analyze the abundance of water resources to confirm the supply-demand balance and adjust water prices accordingly.
