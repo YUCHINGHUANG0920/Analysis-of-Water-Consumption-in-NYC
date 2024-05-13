@@ -5,6 +5,7 @@ This is a personal assignment for Baruch College's CIS 9440 Data Warehousing and
 The data source for this project is the **NYC Open Data - Water Consumption And Cost dataset (2013 - Feb 2023)**, which includes monthly consumption and cost data by borough and development. The assumed business requirements are: to analyze the average water consumption for each of the five boroughs of New York City and the water consumption at different times to identify which borough has the highest average water consumption and at what times the water consumption is highest. This analysis is intended to provide insights for future adjustments and management for water pricing.
 
 
+
 ## Workflow of this project:
 
 ![Star Schema](https://github.com/YUCHINGHUANG0920/Analysis-of-Water-Consumption-in-NYC/blob/master/InformationArchitecture.png)
